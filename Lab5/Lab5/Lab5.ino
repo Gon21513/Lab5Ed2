@@ -37,6 +37,12 @@ int PLAY2 = PB_3 ; //[in para el boton del jugador 2
 int cont1 = 0; // contadores para los jugadores
 int cont2 = 0;
 
+//int estadoAnterior1 = LOW;
+//int estadoAnterior2 = LOW;
+bool flag1 = false;
+bool flag2 = false;
+
+
 //--------------SETUP GENERAL -----------------
 
 void setup(){
@@ -79,9 +85,12 @@ void setup(){
   //asignar las interrupciones para cada boton
   attachInterrupt(digitalPinToInterrupt(PUSH1), button1, LOW); //asignar interrupción a botón de start del semafor 
 
-  attachInterrupt(digitalPinToInterrupt(PLAY1), race1, LOW); //asignar interrupción a botón de P1 
-  attachInterrupt(digitalPinToInterrupt(PLAY2), race2, LOW); //asignar interrupción a botón de P2 
+  //attachInterrupt(digitalPinToInterrupt(PLAY1), race1, LOW); //asignar interrupción a botón de P1 
+  //attachInterrupt(digitalPinToInterrupt(PLAY2), race2, LOW); //asignar interrupción a botón de P2 
 
+
+  attachInterrupt(digitalPinToInterrupt(PLAY1), race1, CHANGE); // Cambio a CHANGE
+  attachInterrupt(digitalPinToInterrupt(PLAY2), race2, CHANGE); // Cambio a CHANG
 
  
 }
@@ -103,6 +112,25 @@ void loop(){
     
   }
 
+  int estadoActual1 = digitalRead(PLAY1);
+  int estadoActual2 = digitalRead(PLAY2);
+
+  
+  if (start_race == 1) {
+    if (estadoActual1 == LOW && flag1) {
+      cont1++;
+      flag1 = false;
+    } else if (estadoActual1 == HIGH) {
+      flag1 = true;
+    }
+
+    if (estadoActual2 == LOW && flag2) {
+      cont2++;
+      flag2 = false;
+    } else if (estadoActual2 == HIGH) {
+      flag2 = true;
+    }
+  }
   
   }
 
@@ -184,24 +212,24 @@ void semaforo(){
 
 
 //--------------------interrupciones para los contadores de carrera-----------------
-void race1(){
-  if (start_race == 1){// revisar si ya se puede iniciar el juego 
-  cont1 = cont1 + 1; //incremtar el contador en 1
-  delay(500);
 
-  }
+
+void race1(){
+
 }
+
 
 void race2(){
-  if (start_race == 1){ // revisar si ya se puede iniciar el juego 
-  cont2 = cont2 + 1; //incremtar el contador en 1
-  delay(500);
 
-  }
 }
+
+
+
+
 
 //--------------Rutinas para el contador de bianrio de los jugares----------
 void leds1(){// primera rutina 
+ 
   switch(cont1){
     case 1:
       digitalWrite(LED1_J1, HIGH);
