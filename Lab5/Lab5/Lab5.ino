@@ -99,7 +99,7 @@ void loop(){
 
   if (start_race == 1){
     leds1();// rutina de contadores bonario s
-    //leds2();
+    leds2();
     
   }
 
@@ -187,7 +187,7 @@ void semaforo(){
 void race1(){
   if (start_race == 1){// revisar si ya se puede iniciar el juego 
   cont1 = cont1 + 1; //incremtar el contador en 1
-  delay(200);
+  delay(500);
 
   }
 }
@@ -195,13 +195,13 @@ void race1(){
 void race2(){
   if (start_race == 1){ // revisar si ya se puede iniciar el juego 
   cont2 = cont2 + 1; //incremtar el contador en 1
-  delay(200);
+  delay(500);
 
   }
 }
 
 //--------------Rutinas para el contador de bianrio de los jugares----------
-void leds1(){
+void leds1(){// primera rutina 
   switch(cont1){
     case 1:
       digitalWrite(LED1_J1, HIGH);
@@ -212,7 +212,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 2:
@@ -224,7 +224,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 3:
@@ -236,7 +236,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 4:
@@ -248,7 +248,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 5:
@@ -260,7 +260,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 6:
@@ -272,7 +272,7 @@ void leds1(){
       digitalWrite(LED6_J1, HIGH);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
 
@@ -285,7 +285,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, HIGH);
       digitalWrite(LED8_J1, LOW);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 8:
@@ -297,7 +297,7 @@ void leds1(){
       digitalWrite(LED6_J1, LOW);
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, HIGH);
-      digitalWrite(LEDW_J1, LOW);
+      digitalWrite(win1, LOW);
       break;
 
     case 9:
@@ -310,6 +310,123 @@ void leds1(){
       digitalWrite(LED7_J1, LOW);
       digitalWrite(LED8_J1, LOW);
       digitalWrite(win1, HIGH);
+      start_race = 0; //se reiciaia contador de arrera y se termina el juego
+
+      break;
+    
+  }
+}
+
+
+void leds2(){//segunda rutina 
+  switch(cont2){
+    case 1:
+      digitalWrite(LED1_J2, HIGH);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 2:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, HIGH);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 3:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, HIGH);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 4:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, HIGH);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 5:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, HIGH);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 6:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, HIGH);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+
+    case 7:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, HIGH);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 8:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, HIGH);
+      digitalWrite(win2, LOW);
+      break;
+
+    case 9:
+      digitalWrite(LED1_J2, LOW);
+      digitalWrite(LED2_J2, LOW);
+      digitalWrite(LED3_J2, LOW);
+      digitalWrite(LED4_J2, LOW);
+      digitalWrite(LED5_J2, LOW);
+      digitalWrite(LED6_J2, LOW);
+      digitalWrite(LED7_J2, LOW);
+      digitalWrite(LED8_J2, LOW);
+      digitalWrite(win2, HIGH);
       start_race = 0; //se reiciaia contador de arrera y se termina el juego
 
       break;
