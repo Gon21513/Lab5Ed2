@@ -1,6 +1,6 @@
 //Luis Pedro  Gonzalez 21513
 
-//Lab 5
+//Postlab 5
 
 
 //leds para los jugadores 
